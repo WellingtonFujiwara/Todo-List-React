@@ -1,6 +1,6 @@
 function Card(props) {
     return (
-        <div className="card">
+        <div className="flex justify-between items-center">
             {props.children}
         </div>
     )

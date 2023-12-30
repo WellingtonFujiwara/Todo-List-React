@@ -1,4 +1,4 @@
-import Card from "./Card"
+import Card from "./Card";
 
 function DoneImg(props) {
 
@@ -13,12 +13,15 @@ function ListItem(props) {
 
     return (
        
-        <li className={props.item.done ? "done" : ""}>
+        <li className={props.item.done ? "line-through" : "" }>
 
             <Card>
-                <button onClick={()=>{props.onDone(props.item)}}><DoneImg done={props.item.done}></DoneImg></button>
+                <div className="flex items-center gap-2">
+                    <button onClick={()=>{props.onDone(props.item)}}><DoneImg done={props.item.done}></DoneImg></button>
 
-                {props.item.text}
+                    {props.item.text}
+                </div>
+                
 
                 <button onClick={()=>{props.onDeleteItem(props.item)}}><img alt="delete" src="./assets/trash-duotone.png"></img></button>
             </Card>

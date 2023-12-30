@@ -20,8 +20,8 @@ function Form(props) {
 
     return(
         <form>
-            <input onChange={handleChange} type="text" value={text}></input>
-            <button onClick={addItem}>add</button>
+            <input onChange={handleChange} placeholder="+ Adicionar uma tarefa" type="text" value={text}></input>
+            <button onClick={addItem}></button>
         </form>
     )
 }

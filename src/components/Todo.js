@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import List from "./List";
 import Form from "./Form";
 import Item from "../Item";
+import Modal from './Modal';
 
 const SAVED_ITEMS = "savedItems";
 
@@ -46,12 +47,16 @@ function Todo() {
     }
 
     return (
-      <div>
-        <h1 className="text-3xl font-bold underline">Todo List</h1>
+      <div className="flex flex-col items-center">
+        <header className="flex flex-row justify-between mt-6 mb-6 w-4/5">
+          <h1 className="text-3xl font-bold underline">Todo List</h1>
+          <button className="rounded-full w-10 h-10 bg-gray-100 font-bold">+</button>
+        </header>
 
-        <Form onAddItem={onAddItem}></Form> 
         <List onDone={onDone} onDeleteItem={onDeleteItem}k items={items}></List>
         
+        {/* <Form onAddItem={onAddItem}></Form> */} 
+        <Modal><Form onAddItem={onAddItem}></Form></Modal>
       </div>
     );
   }
