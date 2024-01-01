@@ -9,6 +9,7 @@ const SAVED_ITEMS = "savedItems";
 function Todo() {
     
     const [items, setItems] = useState([])
+    const [showModal, setShowModal] = useState(false)
 
     useEffect(() => {
       let savedItems = JSON.parse(localStorage.getItem(SAVED_ITEMS))
@@ -27,6 +28,7 @@ function Todo() {
       let item = new Item(text)
 
       setItems([...items, item])
+      onHideModal()
     }
 
     function onDeleteItem(item) {
@@ -46,17 +48,21 @@ function Todo() {
       setItems(updatedItems)
     }
 
+    function onHideModal() {
+      setShowModal(false)
+    }
+
     return (
       <div className="flex flex-col items-center">
         <header className="flex flex-row justify-between mt-6 mb-6 w-4/5">
           <h1 className="text-3xl font-bold underline">Todo List</h1>
-          <button className="rounded-full w-10 h-10 bg-gray-100 font-bold">+</button>
+          <button onClick={() => setShowModal(true)} className="rounded-full w-10 h-10 bg-gray-100 font-bold">+</button>
         </header>
 
         <List onDone={onDone} onDeleteItem={onDeleteItem}k items={items}></List>
         
         {/* <Form onAddItem={onAddItem}></Form> */} 
-        <Modal><Form onAddItem={onAddItem}></Form></Modal>
+        <Modal show={showModal} onHideModal={onHideModal}><Form onAddItem={onAddItem}></Form></Modal>
       </div>
     );
   }
