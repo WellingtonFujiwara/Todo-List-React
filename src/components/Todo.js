@@ -53,13 +53,13 @@ function Todo() {
     }
 
     return (
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center h-screen bg-stone-800">
         <header className="flex flex-row justify-between mt-6 mb-6 w-4/5">
-          <h1 className="text-3xl font-bold underline">Todo List</h1>
+          <h1 className="text-white text-3xl font-bold">Todo List</h1>
           <button onClick={() => setShowModal(true)} className="rounded-full w-10 h-10 bg-gray-100 font-bold">+</button>
         </header>
 
-        <List onDone={onDone} onDeleteItem={onDeleteItem}k items={items}></List>
+        <List onDone={onDone} onDeleteItem={onDeleteItem} items={items}></List>
         
         {/* <Form onAddItem={onAddItem}></Form> */} 
         <Modal show={showModal} onHideModal={onHideModal}><Form onAddItem={onAddItem}></Form></Modal>

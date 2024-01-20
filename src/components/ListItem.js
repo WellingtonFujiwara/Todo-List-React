@@ -13,7 +13,7 @@ function ListItem(props) {
 
     return (
        
-        <li className={props.item.done ? "line-through" : "" }>
+        <li className={props.item.done ? "line-through text-stone-400" : "text-white" }>
 
             <Card>
                 <div className="flex items-center gap-2">

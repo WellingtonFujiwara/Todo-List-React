@@ -1,5 +1,3 @@
-import Card from "./Card";
-
 function Modal(props) {
 
     
@@ -14,9 +12,9 @@ function Modal(props) {
     return (
         <div id="modal" onClick={hideModal} className={props.show ? "flex justify-center items-center w-screen h-screen fixed bg-black bg-opacity-50" : "flex justify-center items-center w-screen h-screen fixed bg-black bg-opacity-50 hidden"}>
             <div className="bg-white p-3">
-                <Card>
+                <div>
                     {props.children}
-                </Card>
+                </div>
             </div>
         </div>
     )
