@@ -3,7 +3,7 @@ class Item {
     static lastId = 0;
 
     constructor(text){
-        this.id = Item.validar_e_criar_novo_id();
+        this.id = this.validar_e_criar_novo_id();
         this.text = text;
         this.done = false;
     }
@@ -30,21 +30,21 @@ class Item {
               // aqui eu transoformo o valor inicial que seria 0 para o
               // valor que deveria está
               Item.lastId = maior_id;
-              return Item.lastId++;
+              return ++Item.lastId;
             } else {
               // se não tiver eu só aumento ele...
-              return Item.lastId++;
+              return ++Item.lastId;
             }
           } else {
             // se entrou aqui é porque não há valor no localStorage
             // fazendo com que entenda-se que valor gerar um id inicial...
             // veja que aqui eu estou retornando para que vá como atributo no constructor..
-            return Item.lastId++;
+            return ++Item.lastId;
           }
         } else {
           // se entrou aqui o valor de lastId já foi ajustado e deve
           // continuar sendo incrementado da maneira correta
-          return Item.lastId++;
+          return ++Item.lastId;
         }
     }
 }
